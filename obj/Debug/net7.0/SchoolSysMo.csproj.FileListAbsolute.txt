@@ -1,3 +1,11 @@
+C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.csproj.AssemblyReference.cache
+C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.GeneratedMSBuildEditorConfig.editorconfig
+C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.AssemblyInfoInputs.cache
+C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.AssemblyInfo.cs
+C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.csproj.CoreCompileInputs.cache
+C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.MvcApplicationPartsAssemblyInfo.cache
+C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.RazorAssemblyInfo.cache
+C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.RazorAssemblyInfo.cs
 C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\bin\Debug\net7.0\appsettings.Development.json
 C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\bin\Debug\net7.0\appsettings.json
 C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\bin\Debug\net7.0\SchoolSysMo.staticwebassets.runtime.json
@@ -227,14 +235,6 @@ C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\bin\Debug\net7.0\runtimes\win\lib
 C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.csproj.AssemblyReference.cache
-C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.GeneratedMSBuildEditorConfig.editorconfig
-C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.AssemblyInfoInputs.cache
-C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.AssemblyInfo.cs
-C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.csproj.CoreCompileInputs.cache
-C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.MvcApplicationPartsAssemblyInfo.cache
-C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.RazorAssemblyInfo.cache
-C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\SchoolSysMo.RazorAssemblyInfo.cs
 C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\staticwebassets\msbuild.SchoolSysMo.Microsoft.AspNetCore.StaticWebAssets.props
 C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\staticwebassets\msbuild.build.SchoolSysMo.props
 C:\0_All_In_One\1_Workspace\Csharp\SchoolSysMo\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.SchoolSysMo.props

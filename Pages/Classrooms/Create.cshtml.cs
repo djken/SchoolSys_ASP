@@ -19,19 +19,20 @@ namespace SchoolSysMo.Pages.Classrooms
         }
 
         [BindProperty]
+        public List<Classroom> Classrooms { get; set; } = new List<Classroom>() { new Classroom() };
 
-        public Classroom Classroom { get; set; } = default!;
 
-
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid || _context.Classroom == null || Classroom == null)
+            if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Classroom.Add(Classroom);
+            foreach (var classroom in Classrooms)
+            {
+                _context.Classroom.Add(classroom);
+            }
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

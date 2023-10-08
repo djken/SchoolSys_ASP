@@ -5,34 +5,103 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Course</h4>
+<h1 class="mb-4">Create Course</h1>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Course.Name" class="control-label"></label>
-                <input asp-for="Course.Name" class="form-control" />
-                <span asp-validation-for="Course.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Course.ClassroomId" class="control-label"></label>
-                <select asp-for="Course.ClassroomId" class ="form-control" asp-items="ViewBag.ClassroomId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+
+<div class="container">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="form-group mb-3">
+            <label asp-for="ClassroomId" class="control-label">Classroom</label>
+            <select asp-for="ClassroomId" class="form-control w-50" asp-items="ViewBag.ClassroomId"></select>
+        </div>
+
+        <div id="coursesContainer">
+            @for (int i = 0; i < Model.Courses.Count; i++)
+            {
+                <div class="course-group mb-3">
+                    <div class="form-group m-0">
+                        <label asp-for="Courses[i].Name" class="control-label">Course @(i + 1)</label>
+                        <div class="input-group w-50">
+                            <input asp-for="Courses[i].Name" class="form-control" />
+                            @* <div class="input-group-append"> *@
+                                <button type="button" class="btn btn-outline-danger btn-sm removeCourse">Remove</button>
+                            @* </div> *@
+                        </div>
+                        <span asp-validation-for="Courses[i].Name" class="text-danger small ml-2"></span>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="form-group mb-3">
+            <button type="button" class="btn btn-info" id="addCourse">Add Course</button>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+
+    <div class="mt-4">
+        <a asp-page="Index" class="text-secondary"><i class="bi bi-arrow-left"></i> Back to List</a>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function removeCourseGroup(event) {
+                event.preventDefault();
+                let courseGroup = event.target.closest(".course-group");
+                courseGroup.remove();
+            }
+
+            let removeButtons = document.querySelectorAll(".removeCourse");
+            removeButtons.forEach(btn => {
+                btn.addEventListener("click", removeCourseGroup);
+            });
+
+            document.getElementById("addCourse").addEventListener("click", function () {
+                let container = document.getElementById("coursesContainer");
+                let index = container.querySelectorAll('.course-group').length;
+
+                let courseGroup = document.createElement("div");
+                courseGroup.className = "course-group mb-3";
+
+                let formGroup = document.createElement("div");
+                formGroup.className = "form-group m-0";
+
+                let label = document.createElement("label");
+                label.textContent = "Course " + (index + 1);
+
+                let inputGroup = document.createElement("div");
+                inputGroup.className = "input-group w-50";
+
+                let input = document.createElement("input");
+                input.type = "text";
+                input.name = `Courses[${index}].Name`;
+                input.className = "form-control";
+
+                let removeButton = document.createElement("button");
+                removeButton.className = "btn btn-outline-danger btn-sm removeCourse";
+                removeButton.textContent = "Remove";
+                removeButton.addEventListener("click", removeCourseGroup);
+
+                inputGroup.appendChild(input);
+                inputGroup.appendChild(removeButton);
+
+                formGroup.appendChild(label);
+                formGroup.appendChild(inputGroup);
+                courseGroup.appendChild(formGroup);
+
+                container.appendChild(courseGroup);
+            });
+        });
+    </script>
 }

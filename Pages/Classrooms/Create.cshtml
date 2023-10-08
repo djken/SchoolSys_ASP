@@ -5,30 +5,95 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<div class="container mt-4">
+    <h1>Create Classroom</h1>
+    <hr />
 
-<h4>Classroom</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Classroom.Name" class="control-label"></label>
-                <input asp-for="Classroom.Name" class="form-control" />
-                <span asp-validation-for="Classroom.Name" class="text-danger"></span>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div id="classroomContainer">
+
+                    @for (int i = 0; i < Model.Classrooms.Count; i++)
+                    {
+                        <div class="classroom-group mb-3">
+                            <label class="control-label">Classroom @(i + 1)</label>
+                            <div class="input-group">
+                                <input asp-for="Classrooms[i].Name" class="form-control" placeholder="Enter Classroom Name" />
+                                <button type="button" class="btn btn-outline-danger btn-sm removeClassroom">Remove</button>
+                            </div>
+                            <span asp-validation-for="Classrooms[i].Name" class="text-danger small ml-2"></span>
+                        </div>
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <button type="button" class="btn btn-info" id="addClassroom">Add Another Classroom</button>
+                </div>
+
+                <div class="mb-3">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+
+            <div class="mt-4">
+                <a asp-page="Index" class="btn btn-outline-secondary">Back to List</a>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function removeClassroomGroup(event) {
+                event.preventDefault();
+                let classroomGroup = event.target.closest(".classroom-group");
+                classroomGroup.remove();
+            }
+
+            let removeButtons = document.querySelectorAll(".removeClassroom");
+            removeButtons.forEach(btn => {
+                btn.addEventListener("click", removeClassroomGroup);
+            });
+
+            document.getElementById("addClassroom").addEventListener("click", function () {
+                let container = document.getElementById("classroomContainer");
+                let index = container.querySelectorAll('.classroom-group').length;
+
+                let classroomGroup = document.createElement("div");
+                classroomGroup.className = "classroom-group mb-3";
+
+                let label = document.createElement("label");
+                label.textContent = "Classroom " + (index + 1);
+
+                let inputGroup = document.createElement("div");
+                inputGroup.className = "input-group";
+
+                let input = document.createElement("input");
+                input.type = "text";
+                input.name = `Classrooms[${index}].Name`;
+                input.className = "form-control";
+                input.placeholder = "Enter Classroom Name";
+
+                let removeButton = document.createElement("button");
+                removeButton.className = "btn btn-outline-danger btn-sm removeClassroom";
+                removeButton.textContent = "Remove";
+                removeButton.addEventListener("click", removeClassroomGroup);
+
+                inputGroup.appendChild(input);
+                inputGroup.appendChild(removeButton);
+
+                classroomGroup.appendChild(label);
+                classroomGroup.appendChild(inputGroup);
+                container.appendChild(classroomGroup);
+            });
+
+        });
+    </script>
 }
